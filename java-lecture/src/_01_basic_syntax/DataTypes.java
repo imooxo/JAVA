@@ -3,20 +3,20 @@ package _01_basic_syntax;
 public class DataTypes {
     public static void main(String[] args) {
         System.out.println("----- primitive type -----");
-        
+
         // 정수형 변수 선언
         int a = 11;
         long b = 1000000000L; // long 타입은 뒤에 'L'을 붙여야함
         short c = 30000;
         byte d = 127;
-        
+
         // 실수형 변수 선언
         float e = 3.14F; // float 타입은 뒤에 "F"를 붙여야함
         double f = 2.7777;
 
         // 문자형 변수 선언
         char ch = 'A'; // 한단어 시 "큰 따옴표X '작은 따옴표 O / 문자시 "큰따옴표o
-        
+
         // 논리형 변수 선언
         boolean bool = true;
 
@@ -42,11 +42,18 @@ public class DataTypes {
         int[] numbers = {1,2,3,4,5}; // 배열
         Person person = new Person ("jade", 22);
 
-        System.out.print("String 변수: "+ greeting);
+        System.out.println("String 변수: "+ greeting);
 
         // for문과 배열 함께 사용하기
-        for(int i=0; i < numbers.length; i++){
-            System.out.println(numbers[i]+", ");
+        for(int i=0; i<numbers.length;i++){
+            System.out.print(numbers[i]+", ");
+        }
+        System.out.println();
+
+        // for문 ver2. for each문
+        System.out.println("for each문 사용해보기");
+        for(int num: numbers){
+            System.out.print(num+" ");
         }
 
         System.out.println("배열 변수: "+ numbers);
@@ -58,7 +65,6 @@ public class DataTypes {
 // class (나중에 배울 예정)
 class Person {
     private String name;
-
     private int age;
 
     public Person(String name, int age){  // 두개의 인자 받아줌
