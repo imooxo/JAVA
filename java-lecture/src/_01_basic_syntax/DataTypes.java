@@ -40,6 +40,18 @@ public class DataTypes {
         // 2. primitive에 없는 자료형
         String greeting = "Hello World!"; // 문자열
         int[] numbers = {1,2,3,4,5}; // 배열
+        Person person = new Person ("jade", 22);
+
+        System.out.print("String 변수: "+ greeting);
+
+        // for문과 배열 함께 사용하기
+        for(int i=0; i < numbers.length; i++){
+            System.out.println(numbers[i]+", ");
+        }
+
+        System.out.println("배열 변수: "+ numbers);
+        System.out.println("Person 객체: "+ person.getName());
+        System.out.println("Person 객체: "+ person.getAge());
     }
 }
 
