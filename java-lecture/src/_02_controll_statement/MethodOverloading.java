@@ -18,6 +18,9 @@ public class MethodOverloading {
         System.out.println("실수 세개 덧셈?: " + ol.add(1.1,2.2,4.4)); // 기댓값:7.7
         // 실제결과: 7.700000000000001 (부동 소수의 한계)
 
+        System.out.println("===== 참고: printf 사용 =====");
+        System.out.printf("%d 곱하기 %d = %d", 10,3,10*3); // 10 곱하기 3 = 30
+        System.out.println(10 + "곱하기" + 3 + " = " + (3 * 10)); // 10곱하기3=30
     }//main
 
     public int add(int a, int b){ // retunr 타입이 int임
