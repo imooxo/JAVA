@@ -73,6 +73,78 @@ public class ArrayListEx {
         numbers.add(1, 7);
         System.out.println(numbers); // [10, 7, 77, 30, 40, 50]
 
+        
+        // 6) ArrayList 끼리 연결: arrayList1.addAll(arrList1)
+        List<Integer> numbers2 = new ArrayList<Integer>(Arrays.asList(100, 99, 98));
+        System.out.println("numbers2: " + numbers2);
+        numbers.addAll(numbers2);  // 실제 numbers가 변경됨
+        System.out.println("numbers: " + numbers);
+        System.out.println("numbers2: " + numbers2);
+
+        // 7) 요소의 위치 찾기 indexOf(value): 리턴값은 value에 대한 index 번호
+        System.out.println(numbers.indexOf(10)); // 0
+        System.out.println(numbers.indexOf((100))); // 6
+        System.out.println(numbers.indexOf(11)); // 요소가 없을때 -1
+        
+        // 8) 요소 삭제 .remove(index 번호) // 해당 인덱스에 대해 지움
+        System.out.println("삭제 전: " + numbers); //[10, 7, 77, 30, 40, 50, 100, 99, 98]
+        numbers.remove(2); // 2번 index의 요소 삭제
+        System.out.println("삭제 후: " + numbers); // 77이 삭제됨 [10, 7, 30, 40, 50, 100, 99, 98]
+
+
+        // 9) 리스트의 크기 확인
+        //System.out.println(numbers.length); // length는 사용하면 안됌
+        System.out.println("numbers ArrayList의 크기: " + numbers.size()); // 8
+
+
+        // 10) 모든 요소 출력: for~ each 문 사용해서 (numbers)
+        for(Integer n: numbers){
+            System.out.print(n + " ");
+        } // 10 7 30 40 50 100 99 98
+        System.out.println();
+
+        for(int n: numbers){
+            System.out.print(n + " ");
+        } // 10 7 30 40 50 100 99 98
+        System.out.println();
+
+        // 11)  모든 요소 삭제 clear()
+        numbers.clear();
+        System.out.println("after clear: " + numbers);
+
+        class Student{
+            private String name;
+            private int age;
+
+            public Student(String name, int age){
+                this.name = name;
+                this.age = age;
+            }
+
+            // getter: 인스턴스의 속성값 가져오기
+            public String getName(){
+                return  name;
+            }
+            public int getAge(){
+                return age;
+            }
+
+            
+            // setter: 인스턴스의 속성값 설정
+            public void setName(String name){
+                this.name = name;
+            }
+            public void setAge(int age){
+                this.age = age;
+            }
+            
+            // toString() 메소드
+            @Override
+            public String toString(){
+                return "Student { name: " + name + "age: " + age + "}";
+            }
+
+        }//class Student
 
     }//main
 }//class
