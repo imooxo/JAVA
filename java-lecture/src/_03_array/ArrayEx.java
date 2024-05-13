@@ -73,6 +73,53 @@ public class ArrayEx {
         System.out.println(langs[0] == langs[1]); // 두 요소 모두 리터럴 방식, true
         System.out.println(langs[0] == langs[2]); // 리터널 방식과 객체 방식 비교, false
         System.out.println(langs[0].equals(langs[2])); // true
+        
+        // 배열 복사
+        /*
+            - 배열은 초기화 / 선언과 동시에 크기가 고정됨
+            - 더 많은 저장공간이 필요할 때, 더 큰 길이의 배열을 새로 만들어 기존 배열을 "복사"함
+         */
+        int[] originArray = {1,2,3};
+        int[] newArray = new int[5]; // 기존 배열의 크기를 키우기 위해서 새로운 배열 선언
+        System.out.println(Arrays.toString(newArray)); // [0, 0, 0, 0, 0]
+        // ver1. for문 사용
+        for(int i = 0; i < originArray.length; i++){
+            newArray[i] = originArray[i];
+        }
+        System.out.println("복사 후: " + Arrays.toString(newArray)); // [1, 2, 3, 0, 0]
+
+
+        // ver2. 기본 메서드 사용 ArrayCopy()
+        // System.arraycopy(src, srcPos, dest, destPos, lenght)
+        /*
+            - Object src : 원본 배열 (originArray)
+            - int srcPos : 원본배열 복사 시작 인덱스
+            - Object dest : 새로운 배열 (newArray)
+            - int destPos : 새 배열 붙여넣기 시작 인덱스
+            - int length : 복사할 항목의 개수
+         */
+        String[] originFruits = {"apple","banana","coconut"};
+        String[] newFruits = new String[5];
+        System.out.println(Arrays.toString((newFruits))); // [null, null, null, null, null]
+        //System.arraycopy(originFruits, 0,newFruits,0,originFruits.length);
+        //System.arraycopy(originFruits, 0,newFruits,0,originFruits.length - 1);
+
+        System.arraycopy(originFruits, 1,newFruits,2,originFruits.length - 1);
+        //  [null, null, banana, coconut, null]
+        System.out.println("after copy: " + Arrays.toString((newFruits)));
+
+        // Arrays 내장 메소드 확인
+        // Arrays import 필수!!
+        // 1) Arrays.copyOf() 처음~ 지정한 길이 만큼 복사
+        int[] originArr = {1,2,3,4,5};
+        int[] copiedArr = Arrays.copyOf(originArr, 3); // (원본배열, 배열 길이)
+        int[] copiedArr2 = Arrays.copyOf(originArr, 6); // (원본배열, 배열 길이)
+
+        System.out.println("copiedArr >> " + Arrays.toString(copiedArr)); // [1, 2, 3]
+        System.out.println("copiedArr2 >> " + Arrays.toString(copiedArr2)); // [1, 2, 3, 4, 5, 0]
+
+
+        System.out.println();
 
     }//main
 }//class
