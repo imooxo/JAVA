@@ -112,39 +112,45 @@ public class ArrayListEx {
         numbers.clear();
         System.out.println("after clear: " + numbers);
 
-        class Student{
-            private String name;
-            private int age;
+        // 12) Student 타입의 arraylist 생성
+        List<Student> students = new ArrayList<>();
+        Student std1 = new Student("aaa", 10); // 인스턴스 생성
+        students.add(std1);
 
-            public Student(String name, int age){
-                this.name = name;
-                this.age = age;
-            }
-
-            // getter: 인스턴스의 속성값 가져오기
-            public String getName(){
-                return  name;
-            }
-            public int getAge(){
-                return age;
-            }
-
-            
-            // setter: 인스턴스의 속성값 설정
-            public void setName(String name){
-                this.name = name;
-            }
-            public void setAge(int age){
-                this.age = age;
-            }
-            
-            // toString() 메소드
-            @Override
-            public String toString(){
-                return "Student { name: " + name + "age: " + age + "}";
-            }
-
-        }//class Student
 
     }//main
 }//class
+
+class Student{
+    private String name;
+    private int age;
+
+    public Student(String name, int age){
+        this.name = name;
+        this.age = age;
+    }
+
+    // getter: 인스턴스의 속성값 가져오기
+    public String getName(){
+        return  name;
+    }
+    public int getAge(){
+        return age;
+    }
+
+
+    // setter: 인스턴스의 속성값 설정
+    public void setName(String name){
+        this.name = name;
+    }
+    public void setAge(int age){
+        this.age = age;
+    }
+
+    // toString() 메소드
+    @Override
+    public String toString(){
+        return "Student { name: " + name + "age: " + age + "}";
+    }
+
+}//class Student
