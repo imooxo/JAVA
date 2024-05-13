@@ -118,8 +118,61 @@ public class ArrayEx {
         System.out.println("copiedArr >> " + Arrays.toString(copiedArr)); // [1, 2, 3]
         System.out.println("copiedArr2 >> " + Arrays.toString(copiedArr2)); // [1, 2, 3, 4, 5, 0]
 
+        // 2) Arrays.copyOfRange(OriginArr, startIndex, endIndex) : startIndex <=  < endIndex는 미포함
+        int[] rangeArray = Arrays.copyOfRange(originArr, 1,4); // [2, 3, 4]
+        System.out.println("Range array >> " + Arrays.toString(rangeArray));
 
-        System.out.println();
+        
+        // 3) Arrays.fill(arr, val) : arr의 모든 요소를 val로 채움
+        int[] filledArr = new int[5];
+        Arrays.fill(filledArr, 10);
+        System.out.println("after fill >> " + Arrays.toString(filledArr));
+
+
+        // 4) Arrays.sort(arr): arr를 오름차순으로 정렬
+        int[] unsortArray = {5, 31, 2, 10, 55, 3};
+        Arrays.sort(unsortArray);
+        System.out.println("after sort >> " + Arrays.toString(unsortArray)); // [2, 3, 5, 10, 31, 55]
+
+
+        // 5) Arrays.equals(arr1, arr2)
+        // 배열의 주소가 아닌 배열의 요소 비교
+        int[] array1 = {1,2,3};
+        int[] array2 = {1,2,3};
+        int[] array3 = {1,2,4};
+        // == 등호 이용해서 배열 비교 (배열의 주소 비교)
+        System.out.println("Array == (1 & 2)" + (array1 == array2)); // false
+        System.out.println("Array == (1 & 2)" + (array1 == array3)); // false
+
+
+        // Arrays.equals 이용해서 배열을 비교 (배열의 순서에 대한 값 비교)
+        System.out.println("Array.equals() (1 & 2)" + Arrays.equals(array1,array2)); // true
+        System.out.println("Array.equals() (1 & 2)" + Arrays.equals(array1,array3)); // false
+
+
+        // 6) Arrays.deepEquals(arr1, arr2)
+        // vs. Arrays.equals()?
+        // 배열의 요소가 값이 아닌 주소로 비교해야 될 때
+        int[][] deepArray1 = {{1,2},{3,4}};
+        int[][] deepArray2 = {{1,2},{3,4}};
+        int[][] deepArray3 = {{1,2},{3,5}};
+        System.out.println("Array.equals() (1 & 2)" + Arrays.equals(deepArray1, deepArray2)); // false
+        System.out.println("Array.equals() (1 & 2)" + Arrays.deepEquals(deepArray1, deepArray2)); // true
+        System.out.println("Array.equals() (1 & 2)" + Arrays.deepEquals(deepArray1, deepArray3)); // false
+
+        
+        // 7) binarySearch(arr, val), 이 때의 arr는 정렬되어 있어야 함
+        // 오름차순 / 내림차순 상관 없음
+        int[] sortedArray = {10,21,35,49,57};
+        int index = Arrays.binarySearch(sortedArray, 35);
+        int index2 = Arrays.binarySearch(sortedArray, 60);
+        System.out.println("index of 35: " + index); // 2
+        System.out.println("index of 60: " + index2); // -6(고정값x) // 검색결과가 없을시 무작위의 음수 값이 나옴
+
+
+
+
+
 
     }//main
 }//class
